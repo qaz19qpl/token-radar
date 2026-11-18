@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="brand">
+    <div class="mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div>
+      <h1>Token Radar</h1>
+      <p class="tagline">Protocols that record no token yet, ranked by what a launch could be worth — and how to farm each one.</p>
+    </div>
+  </div>
+  <div class="stamp" id="stamp"></div>
+</header>
+
+<section class="stats" id="stats" aria-label="Coverage"></section>
+
+<section class="model" id="model" aria-label="How the implied value is derived"></section>
+
+<nav class="views" aria-label="Views">
+  <button type="button" id="tab-board" class="tab active">Pre-token board</button>
+  <button type="button" id="tab-live" class="tab">Already trading</button>
+  <span class="views-note">Trading protocols are never ranked: the market has already priced them.</span>
+</nav>
+
+<section class="controls" id="controls" aria-label="Filters">
+  <label class="grow">Search
+    <input type="search" id="f-q" placeholder="Protocol name or slug">
+  </label>
+  <label>Category
+    <select id="f-cat"><option value="">All categories</option></select>
+  </label>
+  <label>Chain
+    <select id="f-chain"><option value="">All chains</option></select>
+  </label>
+  <label>TVL tier
+    <select id="f-tier">
+      <option value="">All tiers</option>
+      <option value="b1">TVL $1B and up</option>
+      <option value="m250">$250M – $1B</option>
+      <option value="m50">$50M – $250M</option>
+      <option value="u50">Under $50M</option>
+    </select>
+  </label>
+  <label>Status
+    <select id="f-status">
+      <option value="">Board: all rows</option>
+      <option value="watch">Watchlist only</option>
+      <option value="early">Early finds only</option>
+    </select>
+  </label>
+  <span class="count" id="count"></span>
+</section>
+
+<main>
+  <div class="tablewrap" id="boardwrap">
+    <table id="board">
+      <thead><tr id="board-head"></tr></thead>
+      <tbody id="board-body"></tbody>
+    </table>
+    <p class="empty" id="board-empty" hidden>No protocol matches those filters. Loosen one and the radar sweeps again.</p>
+  </div>
+  <div class="tablewrap" id="livewrap" hidden>
+    <table id="live">
+      <thead><tr id="live-head"></tr></thead>
+      <tbody id="live-body"></tbody>
+    </table>
+  </div>
+</main>
+
+<footer>
+  <p>Implied value is this radar's own model claim, derived only from the sealed snapshot's figures — never a prediction that a token will be issued. A protocol here <em>records</em> no token; that is all the data says. Farm plans are starting points, not advice: unaudited contracts can lose the whole position.</p>
+  <p id="source-line"></p>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="detail" id="detail" hidden aria-label="Protocol detail"></aside>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
